@@ -34,4 +34,4 @@ Make sure you have the following installed:
     
 5. You can view it on :
    <br/>
-   https://67a21d43a1b134f1b5a3e7be-xneddtjiqi.chromatic.com/?path=/story/components-multiselectdropdown--default
+   https://67a23cea672a4b899b53242c-gamzkuncqf.chromatic.com/?path=/story/components-multiselectdropdown--default
