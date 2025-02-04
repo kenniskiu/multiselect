@@ -21,7 +21,7 @@ export default function Dropdown({
           {filteredOptions.length > 0 ? (
             filteredOptions.map((option) => (
               <DropdownOption
-                key={option}
+                key={option.key}
                 option={option}
                 selected={selected}
                 toggleSelect={toggleSelect}

@@ -20,7 +20,7 @@ export default function DropdownOption({
       }}
     >
       <p 
-        dangerouslySetInnerHTML={{ __html: highlightText(option, search) }} 
+        dangerouslySetInnerHTML={{ __html: highlightText(option.label, search) }} 
       />
     </div>
   );

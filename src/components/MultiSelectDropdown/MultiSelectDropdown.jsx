@@ -5,15 +5,33 @@ import Dropdown from "./Dropdown";
 import SelectedItem from "./SelectedItem";
 
 const options = [
-  "Option 1",
-  "Option with Icon",
-  "Long Long Option 3",
-  "Long Long Long Option 4",
-  "Long Long Long Option Long 5",
-  "Long Long Long Option Long Long 6",
+  {
+    key:"1",
+    label: 'Option 1'
+  },
+  {
+    key:"2",
+    label: 'Option 2'
+  },
+  {
+    key:"3",
+    label: 'Option 3'
+  },
+  {
+    key:"4",
+    label: 'Option 5'
+  },
+  {
+    key:"6",
+    label: 'Option 6'
+  },
+  {
+    key:"7",
+    label: 'Option 7'
+  },
 ];
 
-export default function MultiSelectDropdown({ isMultiple = false, isWithSearch = true}) {
+export default function MultiSelectDropdown({ isMultiple = false, isWithSearch = true, optionLabels = options, isOutlined = true}) {
   const [selected, setSelected] = useState([]);
   const [search, setSearch] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -27,24 +45,24 @@ export default function MultiSelectDropdown({ isMultiple = false, isWithSearch =
   const toggleSelect = (option) => {
     if (isMultiple) {
       setSelected((prev) =>
-        prev.includes(option)
-          ? prev.filter((item) => item !== option)
-          : [...prev, option]
+        prev.includes(option.label)
+          ? prev.filter((item) => item !== option.label)
+          : [...prev, option.label]
       );
     } else {
-      setSelected((prev) => (prev[0] === option ? [] : [option]));
+      setSelected((prev) => (prev[0] === option.label ? [] : [option.label]));
     }
   };
 
-  const filteredOptions = options.filter((option) =>
-    option.toLowerCase().includes(search.toLowerCase())
+  const filteredOptions = optionLabels.filter((option) =>
+    option.label.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
     <div className="relative w-[1000px]">
       <div
         ref={selectRef}
-        className="border border-gray-500 rounded-sm p-2 flex items-center justify-between cursor-pointer bg-white"
+        className={`border border-gray-500 rounded-sm p-2 flex items-center justify-between cursor-pointer ${isOutlined ? 'bg-gray-200' : 'bg-white'}`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex flex-wrap gap-1">
