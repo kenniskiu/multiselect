@@ -18,11 +18,13 @@ Make sure you have the following installed:
 2. **Install dependencies:**
     Run the following command to install the necessary dependencies for the project:
     Using npm:
+   ```bash
     npm install
 
-3. **Run it:**
+4. **Run it:**
   - Through React App
     Using npm:
+    ```bash
     npm run dev
   - Through Storybook
     npm run storybook
