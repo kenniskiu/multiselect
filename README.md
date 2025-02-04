@@ -1,4 +1,4 @@
-React JS + Vite + Storybook + Chromatic
+--: React JS + Vite + Storybook + Chromatic
 
 ## Prerequisites
 
