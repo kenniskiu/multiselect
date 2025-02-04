@@ -43,14 +43,15 @@ export default function MultiSelectDropdown({ isMultiple = false, isWithSearch =
   useOutsideClick([selectRef, dropdownRef, searchRef], () => setIsOpen(false));
 
   const toggleSelect = (option) => {
+    console.log(option)
     if (isMultiple) {
       setSelected((prev) =>
-        prev.includes(option.label)
-          ? prev.filter((item) => item !== option.label)
-          : [...prev, option.label]
+        prev.includes(option)
+          ? prev.filter((item) => item.key != option.key)
+          : [...prev, option]
       );
     } else {
-      setSelected((prev) => (prev[0] === option.label ? [] : [option.label]));
+      setSelected((prev) => (prev[0] == option ? [] : [option]));
     }
   };
 
@@ -59,7 +60,7 @@ export default function MultiSelectDropdown({ isMultiple = false, isWithSearch =
   );
 
   return (
-    <div className="relative w-[1000px]">
+    <div className="relative w-screen max-w-xl">
       <div
         ref={selectRef}
         className={`border border-gray-500 rounded-sm p-2 flex items-center justify-between cursor-pointer ${isOutlined ? 'bg-gray-200' : 'bg-white'}`}
@@ -67,8 +68,8 @@ export default function MultiSelectDropdown({ isMultiple = false, isWithSearch =
       >
         <div className="flex flex-wrap gap-1">
           {selected.length > 0 ? (
-            selected.map((item) => (
-              <SelectedItem key={item} item={item} toggleSelect={toggleSelect} />
+            selected.map((option) => (
+              <SelectedItem key={option.key} item={option} toggleSelect={toggleSelect} />
             ))
           ) : (
             <span className="text-gray-400"></span>

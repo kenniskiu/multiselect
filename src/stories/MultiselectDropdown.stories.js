@@ -13,9 +13,9 @@ export default {
     optionLabels: { 
       control: "object",
       defaultValue: [
-        { label: "Option 1", value: "option1" },
-        { label: "Option 2", value: "option2" },
-        { label: "Option 3", value: "option3" }
+        { key: "Option1", label: "option 1" },
+        { key: "Option2", label: "option 2" },
+        { key: "Option3", label: "option 3" }
       ]
     },
     isOutlined: { control: "boolean" }, 
@@ -28,10 +28,17 @@ export const Default = Template.bind({});
 Default.args = {
   isMultiple: false,  
   isWithSearch: true,
+  isOutlined: false,
+  optionLabels: [
+    { key: "Option1", label: "option 1" },
+    { key: "Option2", label: "option 2" },
+    { key: "Option3", label: "option 3" }
+  ]
 };
 
 export const MultipleSelection = Template.bind({});
 MultipleSelection.args = {
   isMultiple: true, 
   isWithSearch: true, 
+  isOutlined: true
 };
