@@ -30,15 +30,8 @@ Default.args = {
   isWithSearch: true,
   isOutlined: false,
   optionLabels: [
-    { key: "Option1", label: "option 1" },
-    { key: "Option2", label: "option 2" },
-    { key: "Option3", label: "option 3" }
+    { key: "option1", label: "Option 1" },
+    { key: "option2", label: "Option 2" },
+    { key: "option3", label: "Option 3" }
   ]
-};
-
-export const MultipleSelection = Template.bind({});
-MultipleSelection.args = {
-  isMultiple: true, 
-  isWithSearch: true, 
-  isOutlined: true
 };

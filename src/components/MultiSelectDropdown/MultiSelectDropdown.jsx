@@ -55,7 +55,7 @@ export default function MultiSelectDropdown({ isMultiple = false, isWithSearch =
     }
   };
 
-  const filteredOptions = optionLabels.filter((option) =>
+  const filteredOptions = optionLabels?.filter((option) =>
     option.label.toLowerCase().includes(search.toLowerCase())
   );
 

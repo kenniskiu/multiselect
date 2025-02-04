@@ -1,1 +1,0 @@
-import{g as n}from"./index-D8wE4O-G.js";import{r as a}from"./index-BWdQ946C.js";var r=a();const c=n(r);var m=async(e,o)=>new Promise(t=>{r.render(e,o,()=>t(null))}),s=e=>{r.unmountComponentAtNode(e)};const p=Object.freeze(Object.defineProperty({__proto__:null,renderElement:m,unmountElement:s},Symbol.toStringTag,{value:"Module"}));export{c as M,m as a,p as b,r,s as u};
