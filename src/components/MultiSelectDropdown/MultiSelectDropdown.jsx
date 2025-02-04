@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import useOutsideClick from "../../utils/useOutsideClick";
 import Dropdown from "./Dropdown";
@@ -13,7 +13,7 @@ const options = [
   "Long Long Long Option Long Long 6",
 ];
 
-export default function MultiSelectDropdown({config}) {
+export default function MultiSelectDropdown({ isMultiple = false, isWithSearch = true}) {
   const [selected, setSelected] = useState([]);
   const [search, setSearch] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -25,16 +25,14 @@ export default function MultiSelectDropdown({config}) {
   useOutsideClick([selectRef, dropdownRef, searchRef], () => setIsOpen(false));
 
   const toggleSelect = (option) => {
-    if (config['isMultiple']) {
+    if (isMultiple) {
       setSelected((prev) =>
         prev.includes(option)
           ? prev.filter((item) => item !== option)
           : [...prev, option]
       );
     } else {
-      setSelected((prev) =>
-        prev[0] === option ? [] : [option]
-      );
+      setSelected((prev) => (prev[0] === option ? [] : [option]));
     }
   };
 
@@ -43,7 +41,7 @@ export default function MultiSelectDropdown({config}) {
   );
 
   return (
-    <div className="relative w-100">
+    <div className="relative w-[1000px]">
       <div
         ref={selectRef}
         className="border border-gray-500 rounded-sm p-2 flex items-center justify-between cursor-pointer bg-white"
@@ -52,11 +50,7 @@ export default function MultiSelectDropdown({config}) {
         <div className="flex flex-wrap gap-1">
           {selected.length > 0 ? (
             selected.map((item) => (
-              <SelectedItem
-                key={item}
-                item={item}
-                toggleSelect={toggleSelect}
-              />
+              <SelectedItem key={item} item={item} toggleSelect={toggleSelect} />
             ))
           ) : (
             <span className="text-gray-400"></span>
@@ -74,7 +68,7 @@ export default function MultiSelectDropdown({config}) {
         toggleSelect={toggleSelect}
         dropdownRef={dropdownRef}
         searchRef={searchRef}
-        config={config}
+        isWithSearch={isWithSearch}
       />
     </div>
   );

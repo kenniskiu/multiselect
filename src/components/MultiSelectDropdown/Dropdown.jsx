@@ -11,12 +11,12 @@ export default function Dropdown({
   toggleSelect,
   dropdownRef,
   searchRef,
-  config
+  isWithSearch
 }) {
   return (
     isOpen && (
       <div ref={dropdownRef} className="absolute mt-3 w-full bg-white border rounded-sm shadow-lg z-100 border-gray-500">
-        {config['isWithSearch'] ? <SearchInput search={search} setSearch={setSearch} searchRef={searchRef}/> : ""}
+        {isWithSearch ? <SearchInput search={search} setSearch={setSearch} searchRef={searchRef}/> : ""}
         <div className="max-h-40 overflow-auto">
           {filteredOptions.length > 0 ? (
             filteredOptions.map((option) => (
