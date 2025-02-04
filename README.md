@@ -1,4 +1,4 @@
---: React JS + Vite + Storybook + Chromatic
+# React JS + Vite + Storybook + Chromatic
 
 ## Prerequisites
 
@@ -31,3 +31,7 @@ Make sure you have the following installed:
   - Through Storybook
     ```bash
     npm run storybook
+    
+5. You can view it on :
+   <br/>
+   https://67a21d43a1b134f1b5a3e7be-xneddtjiqi.chromatic.com/?path=/story/components-multiselectdropdown--default
